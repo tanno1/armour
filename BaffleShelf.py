@@ -154,3 +154,7 @@ plt.legend()
 plt.title('Frequency Response of Woofer, and Corrected Woofer')
 plt.grid(which='both')
 plt.show()
+
+# save results to use in other files
+np.save('corrected_spl_db', corrected_spl_db)
+np.save('frequency_array', freq_hz)
