@@ -10,7 +10,7 @@ import scipy.signal as signal
 import scipy.optimize as opt
 
 # define f vs db file location
-file_path = './SDS-P830657_Extracted_Frequency_Response.txt'
+file_path = 'woofer\SDS-P830657_Extracted_Frequency_Response.txt'
 
 # open file
 data = open(file_path, 'r')
@@ -21,19 +21,15 @@ read = data.read()
 # split into lines
 lines = read.splitlines()
 
-# grab header column
-header = lines[0]
-
 # define empty vars for the freq, dbSPL, and phase
 freq_hz = []
 dbl_sp = []
 phase_deg = []
 
-# skip header line
-data_lines = lines[1:]
+
 
 # iterate through lines and add each value to its corresponding column
-for i in data_lines:
+for i in lines:
     values = i.split()
     freq_hz.append(float(values[0]))
     dbl_sp.append(float(values[1])-87) # bump it down to around 0

@@ -30,7 +30,7 @@ for i in lines:
 
 # conver to np arrays
 freq_hz = np.array(freq_hz)
-dbl_sp = np.array(dbl_sp) - 9
+dbl_sp = np.array(dbl_sp) # -9, uncomment -9 
 
 # plot dbSPl vs f
 plt.semilogx(freq_hz, dbl_sp)
@@ -101,3 +101,8 @@ plt.legend()
 plt.title('Optimization of Filter Corner Frequency')
 plt.grid(which='both')
 plt.show()
+
+tweet_hpf = 20 * np.log10(combined_response)
+
+np.save('hpf_tweet', tweet_hpf)
+np.save('hpf_freq', freq_hz)

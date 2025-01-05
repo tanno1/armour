@@ -104,3 +104,8 @@ plt.legend()
 plt.title('Optimization of Filter Corner Frequency')
 plt.grid(which='both')
 plt.show()
+
+combined_respose_db = 20 * np.log10(combined_response)
+
+np.save('lpf_woof_db', combined_respose_db)
+np.save('lpf_woof_freq', freq_hz)
