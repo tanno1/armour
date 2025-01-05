@@ -94,7 +94,7 @@ combined_response = woofer_response * h_optimal
 plt.semilogx(freq_hz, dbl_spl, label="Woofer Response")
 plt.semilogx(freq_hz, 20 * np.log10(h_desired), label="Filter Response")
 plt.semilogx(freq_hz, 20 * np.log10(h_optimal), label="Optimal filter repsonse")
-plt.semilogx(freq_hz, 3+(20 * np.log10(combined_response)), label="Acoustic Transfer Function")
+plt.semilogx(freq_hz, (20 * np.log10(combined_response)), label=f"Acoustic Transfer Function with {optimal_corner_freq}")
 plt.axvline(1800, color='red', linestyle='--', label="Target Corner Frequency (1.8 kHz)")
 plt.xlim(20, 20000)
 plt.ylim(-20, 10)
