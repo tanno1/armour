@@ -88,10 +88,10 @@ print(f"Optimal filter corner frequency: {optimal_corner_freq:.2f} Hz")
 h_optimal = lr_4th(2, optimal_corner_freq, 'highpass', freq_hz)
 combined_response = woofer_response * h_optimal
 
-plt.semilogx(freq_hz, dbl_sp, label="Tweeter Response")
+plt.semilogx(freq_hz, dbl_sp - 9, label="Tweeter Response")
 plt.semilogx(freq_hz, 20 * np.log10(h_desired), label="Filter Response")
 plt.semilogx(freq_hz, 20 * np.log10(h_optimal), label="Optimal filter repsonse", linestyle='--')
-plt.semilogx(freq_hz,20 * np.log10(combined_response), label="Acoustic Transfer Function")
+plt.semilogx(freq_hz,20 * np.log10(combined_response) - 9, label="Acoustic Transfer Function")
 plt.axvline(1800, color='red', linestyle='--', label="Target Corner Frequency (1.8 kHz)")
 plt.xlim(300, 20000)
 plt.ylim(-40, 20)
